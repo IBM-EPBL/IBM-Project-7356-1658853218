@@ -1,0 +1,32 @@
+form{
+    margin: 400px auto;
+    width: 700px;
+    height: 450px;
+    text-align: center;
+    background-color: gray;
+    border-radius: 40px;
+}
+input{
+    width: 80%;
+    height: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+label{
+    width: 100%;
+
+}
+#submit{
+    width: 50%;
+    font-weight: bolder;
+    border-radius: 30px;
+    background-color: rgb(11, 130, 163);
+}
+
+#submit:hover{
+    background-color: white;
+}
+body{
+    background-image: url("/static/image/image.jpg");
+    background-size: cover  ;
+}

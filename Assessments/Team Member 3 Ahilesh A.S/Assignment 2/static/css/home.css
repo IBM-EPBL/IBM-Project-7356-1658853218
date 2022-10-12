@@ -1,0 +1,12 @@
+
+a{
+    margin-left: 100px;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 800;
+}
+
+a:hover{
+    color: brown;
+    font-size:1cm;
+}
