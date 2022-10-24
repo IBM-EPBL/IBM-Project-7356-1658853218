@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home</title>
+    <style>
+        body{
+            background-image: url("{{url_for('static',filename='/image/back.jpg')}}");
+        }
+        form{
+            margin: 10% auto;
+            width: 40%;
+            text-align: center;
+            padding-top: 20px;
+            border-radius: 5px;
+
+        }
+        input{
+            text-align: center;
+        }
+        input:focus::placeholder {
+            color: transparent;
+        }
+    </style>
+{% endblock %}
+
+{% block body %} 
+<div class="container-fluid">
+    <form>
+        <div class="form-group d-flex pt-3">
+            <div class="form-group w-100 pl-5 pr-5">
+                <input type="search" name="search" placeholder="Search"  class="form-control">
+            </div>
+            <div class="form-group w-50 pl-5 pr-5">
+                <input type="submit" value="Search" class="form-control btn bg-primary">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

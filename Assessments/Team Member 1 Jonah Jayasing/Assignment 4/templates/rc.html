@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Register</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        form{
+            margin: 10% auto;
+            width: 40%;
+            text-align: center;
+            background-color:wheat;
+            padding-top: 20px;
+            border-radius: 5px;
+
+        }
+        input{
+            text-align: center;
+        }
+        input:focus::placeholder {
+            color: transparent;
+        }
+    </style>
+{% endblock %}
+
+{% block body %} 
+<div class="container-fluid">
+    <form>
+        <h1>Register as Company</h1>
+        <div class="form-group d-flex pt-3">
+            <div class="form-group w-50 pl-5 pr-5">
+                <label>First Name</label>
+                <input type="text" name="firstname" placeholder="First Name"  class="form-control">
+            </div>
+            <div class="form-group w-50 pl-5 pr-5">
+                <label>Second Name</label>
+                <input type="text" name="secondname" placeholder="Second Name"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group pl-5 pr-5">
+                <label>User Name</label>
+                <input type="text" name="username" placeholder="User Name"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group pl-5 pr-5">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Your Mail Id"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group pl-5 pr-5">
+                <label>Phone No</label>
+                <input type="text" name="Phoneno" placeholder="Your Phone Number"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group d-flex">
+            <div class="form-group w-50 pl-5 pr-5">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password"  class="form-control">
+            </div>
+            <div class="form-group w-50 pl-5 pr-5">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmpassword" placeholder="Confirm Password"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group pl-5 pr-5">
+                <label>Company Name</label>
+                <input type="text" name="companyname"  placeholder="Company Name" class="form-control">
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="form-group">
+                <p>Register as a Jobseeker <a href="/rs">Jobseeker</a></p>
+                <input type="submit" value="Submit" class="btn bg-primary w-50 mb-5">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+
