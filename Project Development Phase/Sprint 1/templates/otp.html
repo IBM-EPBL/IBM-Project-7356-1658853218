@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>register</title>
+<style>
+  .container{
+    position:absolute;
+  }
+  .edit{
+    padding-left: 55%;
+  }
+  form{
+    margin: 50px 40% auto;
+    text-align: center;
+    width: 50%;
+  }
+  #Requester{
+    visibility:hidden;
+  }
+</style>
+{% endblock %}
+{% block body%}
+<div class="container">
+  <div class="edit">
+    <button class="btn" onclick="changed()">Donor</button>
+    <button class="btn ml-3" onclick="changer()">Requester</button>
+  </div>
+  <div class="container" id="Donor">
+    <div class="container">
+      <form action="/otp" method="POST">
+        <input type="hidden" name="choice" value="Donor">
+        <h1>Donor</h1>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" id="" class="form-control">
+          </div>
+          <input type="submit" class="btn" value="Submit">
+        </form>
+  </div>
+  </div>
+  <div class="container" id="Requester">
+    <div class="container">
+      <form action="/otp" method="POST">
+        <input type="hidden" name="choice" value="Requester">
+        <h1>Requester</h1>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" id="" class="form-control">
+          </div>
+          <input type="submit" class="btn" value="Submit">
+        </form>
+  </div>
+  </div>
+  
+</div>
+<script>
+  function changer(){
+    document.getElementById("Donor").style.visibility="hidden";
+    document.getElementById("Requester").style.visibility="visible";      
+  }
+ 
+  function changed(){
+    document.getElementById("Requester").style.visibility="hidden";
+    document.getElementById("Donor").style.visibility="visible";      
+  }
+</script>
+{% endblock %}
