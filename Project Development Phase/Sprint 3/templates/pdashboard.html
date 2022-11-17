@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Dashboard</title>
+<style>
+    body{
+        text-align: center;
+    }
+    input{
+        text-align: center;
+    }
+    form{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+
+    }
+    .edit{
+        margin: 0;
+        padding: 0;
+        display:flex;
+        
+    }
+    .container-fluid{
+        width: 12%;
+        height: auto;
+        background-color: rgb(120, 104, 104);
+
+    }
+    .change{
+        margin-left: 30%;
+        margin-top: 5%;
+    }
+    
+    
+    
+</style>
+{% endblock %}
+
+{% block body%}
+    <input type="hidden" name="choice" value={{choice}}>
+    <div class="container edit" id="Donor">
+        <div class="container-fluid">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item  mr-5">
+                      <a class="nav-link" href="#">Notification</a>
+                    </li>
+                    <li class="nav-item  mr-5">
+                      <a class="nav-link" href="/">Logout</a>
+                    </li>
+            </div>
+        </div>
+        <div class="container change">
+                    
+            <div class="container">
+                <h1>You are a {{choice}}</h1>
+                <img alt="img" src="https://projectdonor.s3.jp-tok.cloud-object-storage.appdomain.cloud/{{imgname}}" >
+            </div>
+            <div class="container">
+                <form>
+                    {% for i in data.keys() %}
+                    <div class="form-group">
+                        <label>{{i}}</label>
+                        <input type="email" name="email" id="" class="form-control" value={{data[i]}} disabled>
+                      </div>
+                    {% endfor %}
+                </form>
+             </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

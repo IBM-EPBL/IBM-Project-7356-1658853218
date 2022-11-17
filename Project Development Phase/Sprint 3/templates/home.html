@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title> page</title>
+{% endblock %}
+
+{% block body%}
+{% if message %}
+    <span id="error">{{message}}</span><br> 
+{% endif %}
+<script>
+    setTimeout(() => {
+    const box = document.getElementById('error');
+    box.style.display = 'none';
+  }, 10000);
+</script>
+{% endblock %}

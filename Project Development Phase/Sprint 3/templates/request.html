@@ -1,0 +1,28 @@
+
+
+{% extends 'base.html' %}
+
+{% block head%}
+<title> page</title>
+{% endblock %}
+
+{% block body%}
+{% for i in range(0,length) %}
+<div class="d-flex border m-5">
+    <div class="card-image" style="width:30%;height: 30% ;">
+        <img class="card-img-top p-5" src="https://projectdonor.s3.jp-tok.cloud-object-storage.appdomain.cloud/{{data[i]['IMGNAME']}}" alt="Card image" style="width: 250px; height:250px;" >
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">User Name:{{data[i]["USERNAME"]}}</h4>
+        <p class="card-text">Email: {{data[i]["EMAIL"]}}</p>
+        <p class="card-text">Email: {{data[i]["BLOODGROUP"]}}</p>
+        <form action="/info" method="POST">
+            <input type="hidden" value={{email}} name="remail">
+            <input type="hidden" name="email" value={{data[i]['EMAIL']}}>
+            <input type="Submit" class="btn btn-primary stretched-link" name="value" value="See more info">
+                  
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

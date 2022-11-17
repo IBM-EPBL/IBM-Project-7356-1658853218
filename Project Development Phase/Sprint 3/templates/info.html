@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>info page</title>
+<style>
+    body{
+        text-align: center;
+    }
+    input{
+        text-align: center;
+    }
+    form{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+
+    }
+    
+    
+    
+    
+</style>
+{% endblock %}
+
+{% block body%}
+<h1>info</h1>
+<div class="container">
+    
+    <div class="container">
+        <img alt="img" src="https://projectdonor.s3.jp-tok.cloud-object-storage.appdomain.cloud/{{imgname}}" >
+    </div>
+    <div class="container">
+        <form action="/back" method="POST">
+            <input type="hidden" value={{email}} name="remail">
+            <input type="hidden" value={{data["EMAIL"]}} name="demail">
+
+            {% for i in data.keys() %}
+            <div class="form-group">
+                <label>{{i}}</label>
+                <input type="email" name="email" id="" class="form-control" value={{data[i]}} disabled>
+            </div>
+            {% endfor %}
+            <input type="submit" name="button" value="Request" class="btn">
+            <input type="submit" name="button" value="Back" class="btn">
+        </form>
+     </div>
+    </div>
+</div>
+{% endblock %}
