@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title> notification</title>
+<style>
+    body{
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block body%}
+<h1>Notification</h1>
+
+<div class=" d-flex  border m-5">
+    <div class="card-body">
+        <h4 class="card-title">Hospital Name : {{data["HOSPITALNAME"]}}</h4>
+        <p class="card-text">Requester Email: {{data["REQUESTEMAIL"]}}</p>
+        <p>Request for plasma donation</p>
+        <form action="/choice" method="POST">
+            <input type="hidden" value={{email}} name="remail">
+            <input type="hidden" name="email" value={{data['REQUESTEMAIL']}}>
+            <input type="hidden" name="demail" value={{email}}>
+            <input type="Submit" class="btn btn-primary stretched-link" name="value" value="Accept">
+            <input type="Submit" class="btn btn-primary stretched-link" name="value" value="Reject">
+                  
+        </form>
+    </div>
+</div>
+{% endblock %}

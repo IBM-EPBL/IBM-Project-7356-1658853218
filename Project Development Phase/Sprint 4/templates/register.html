@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>register</title>
+<style>
+  .container{
+    position:absolute;
+  }
+  .edit{
+    padding-left: 55%;
+  }
+  form{
+    margin: 50px 40% auto;
+    text-align: center;
+    width: 50%;
+  }
+  #Requester{
+    visibility:hidden;
+  }
+  span{
+    color: red;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+{% endblock %}
+{% block body%}
+<script>
+  function check(){
+    var password = document.getElementById("password").value;
+    var repassword = document.getElementById("repassword").value;
+    
+    if(password != repassword)  
+    {   
+      document.getElementById("error").innerHTML = "Type the password correctly"; 
+      return false
+    }
+    else if (password.length<8){
+      document.getElementById("error").innerHTML = "Your password should be big"; 
+      return false
+    }
+
+  } 
+
+  function show() {
+    var password = document.getElementById("password");
+    var repassword = document.getElementById("repassword");
+  if (password.type === "password") {
+    password.type = "text";
+    repassword.type = "text";
+  } else {
+    password.type = "password";
+    repassword.type = "password";
+  }
+}
+
+function check1(){
+    var password = document.getElementById("password1").value;
+    var repassword = document.getElementById("repassword1").value;
+    
+    if(password != repassword)  
+    {   
+      document.getElementById("error1").innerHTML = "Type the password correctly"; 
+      return false
+    }
+    else if (password.length<8){
+      document.getElementById("error1").innerHTML = "Your password should be big"; 
+      return false
+    }
+
+  } 
+
+  function show1() {
+    var password = document.getElementById("password1");
+    var repassword = document.getElementById("repassword1");
+  if (password.type === "password") {
+    password.type = "text";
+    repassword.type = "text";
+  } else {
+    password.type = "password";
+    repassword.type = "password";
+  }
+}
+</script>
+<div class="container">
+  <div class="container" id="Donor">
+    <form action="/register" method="POST" enctype=multipart/form-data>
+      <h1>{{choice}}</h1>
+      <input type="hidden" name="choice" value="Donor">
+      <input type="hidden" name="email" value={{email}}>
+        <div class="form-group">
+          <label>User Name</label>
+          <input type="text" name="username" id="" class="form-control" required>
+        </div>
+  
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="firstname" id="" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="lastname" id="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email"  disabled class="form-control"  value={{email}}  >
+        </div>
+        
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+  
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" name="repassword" id="repassword" class="form-control" required>
+          <span id="error"></span>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" onclick="show()" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">show Password</label>
+        </div>
+        
+        <div class="form-group ">
+          <label for="">Blood Group</label><br>
+          <select name="bloodgroup" class="custom-select"  id="" required>
+              <option value="A+">Select your Blood group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+          </select>
+      </div>
+
+        <div class="form-group">
+          <label>Date-Of-Birth</label>
+          <input type="date" name="date" id=""  pattern="mm/dd/yyyy" class="form-control" required>
+        </div>
+  
+        <div class="custom-file mb-3">
+          <input type="file" name="photo" class="custom-file-input"  id="customFile" accept="image/*"  required>
+          <label class="custom-file-label" for="customFile">Upload your image</label>
+        </div>
+      
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phoneno" id="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea name="Address"  class="form-control" id="" cols="5" rows="3" required></textarea>
+        </div>
+  
+        <input type="submit" onclick="return check()"  value="Submit">
+      </form>
+  </div>
+
+  <div class="container" id="Requester" >
+      <form action="/register" method="POST" enctype="multipart/form-data">
+        <h1>Requester</h1>
+        <input type="hidden" name="choice" value="Requester">
+        <input type="hidden" name="email" value={{email}}>
+          <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="username" id="" class="form-control" required>
+          </div>
+  
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstname" id="" class="form-control"required>
+          </div>
+          
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastname" id="" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" disabled  class="form-control"  value={{email}}  >
+          </div>
+          
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" id="password1" class="form-control" required>
+          </div>
+  
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="repassword" id="repassword1" class="form-control" required>
+            <span id="error1"></span> 
+          </div>
+          
+          <div class="form-check">
+            <input type="checkbox" onclick="show1()" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">show Password</label>
+          </div><br>
+
+          <div class="custom-file mb-3">
+            <input type="file" name="photo" class="custom-file-input"  id="customFile"  accept="image/*" required>
+            <label class="custom-file-label" for="customFile">Upload your image</label>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phoneno" id="" class="form-control" required>
+          </div>
+  
+          <div class="form-group">
+            <label>Hospitsl Name</label>
+            <input type="text" name="hospitalname" id="" class="form-control" required>
+          </div>
+  
+          <div class="form-group">
+            <label>Address</label>
+            <textarea name="Address"  class="form-control" id="" cols="5" rows="3" required></textarea>
+          </div>
+  
+          <input type="submit" class="btn" onclick="return check1()" value="Submit">
+        </form>
+  </div>
+  
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+ var choice = '{{choice}}';
+ if (choice == "Donor"){
+    document.getElementById("Requester").style.visibility="hidden";
+    document.getElementById("Donor").style.visibility="visible";   
+ } else if (choice == "Requester"){
+   document.getElementById("Donor").style.visibility="hidden";
+   document.getElementById("Requester").style.visibility="visible"; 
+ }
+ $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
+
+  
+
+  setTimeout(() => {
+    const box = document.getElementById('error');
+    box.style.display = 'none';
+  }, 10000);
+
+   
+  
+
+</script>
+
+{% endblock %}

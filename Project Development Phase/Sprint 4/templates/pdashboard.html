@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Dashboard</title>
+<style>
+    body{
+        text-align: center;
+    }
+    input{
+        text-align: center;
+    }
+    .mod{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+
+    }
+    .edit{
+        margin: 0;
+        padding: 0;
+        display:flex;
+        
+    }
+    .container-fluid{
+        width: 15%;
+        height: auto;
+        background-color: rgb(120, 104, 104);
+
+    }
+    .change{
+        margin-left: 30%;
+        margin-top: 5%;
+    }
+    
+    
+    
+    
+    
+</style>
+{% endblock %}
+
+{% block body%}
+    <input type="hidden" name="choice" value={{choice}}>
+    <div class="container edit" id="Donor">
+        <div class="container-fluid">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mb-3 mt-3">
+                        <form action="/notification" method="POST">
+                            <input type="hidden" name="email" value="{{data['EMAIL']}}">
+                            <input type="submit" class="btn" value="Notification">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/">
+                            <input type="submit" class="btn" value="Logout">
+                        </form>
+                    </li>
+            </div>
+        </div>
+        <div class="container change">
+                    
+            <div class="container">
+                <h1>You are a {{choice}}</h1>
+                <img alt="img" src="https://projectdonor.s3.jp-tok.cloud-object-storage.appdomain.cloud/{{imgname}}" >
+            </div>
+            <div class="container">
+                <form>
+                    {% for i in data.keys() %}
+                    <div class="form-group">
+                        <label>{{i}}</label>
+                        <input type="email" name="email" id="" class="form-control" value={{data[i]}} disabled>
+                      </div>
+                    {% endfor %}
+                </form>
+             </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
