@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assignment4
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: assignment4
+
+  template:
+    metadata:
+      labels:
+        app: assignment4
+
+
+    spec:
+      containers:
+        - name: assignment4-container
+          image: jp.icr.io/akhil/assignment4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
