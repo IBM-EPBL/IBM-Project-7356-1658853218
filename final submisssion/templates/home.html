@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Home page</title>
+<style>
+  .container{
+    text-align: center;
+  }
+  img{
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block body%}
+{% if message %}
+    <span id="error">{{message}}</span><br> 
+{% endif %}
+
+<div class="container">
+  <div class="container">
+    <img src="{{url_for('static',filename='/images/b.jpeg')}}" alt="">
+    <h1>Donate Plasma</h1>
+  </div>
+  <div class="conatiner mt-5">
+    <h1>What is PLASA?</h1>
+    <h3>PLASA is the lead international membership body for those who supply technologies and services to the event and entertainment industries. The Association works to ensure that each sector is fully represented and plays an active role in highlighting best practice and safe working conditions.</h3>
+  </div>
+  <div class=" mt-5">
+    <h1>Benefits of Plasma Donation </h1>
+    
+    <h1>1.Make an Impact</h1>
+    <p>Plasma is used to create medicine that treats chronic illnesses including immune deficiencies, bleeding disorders, and other rare
+      diseases.People around the world are in need of plasma transfusions, convalescent plasma, and medicine made from plasma every 
+      day. Since plasma can't be produced synthetically, patients who receive plasma protein therapies such as intravenous
+      immunoglobulin (IVIg) and clotting factors are dependent on the generosity of donors.
+    </p>  
+    <h1>2.Boost Your Mood</h1>
+    <p>
+      Research shows that helping others actually helps you. A study published in the International Journal of Behavioral Medicine found that altruism, or the concern for the well-being of others, is linked to greater emotional well-being, health, and can lead to an overall happier outlook. Whether you donate plasma, money, gifts, or your time, the simple act of giving is an effective way to boost your own happiness, lower stress levels, increase endorphins, and even improve social connections.
+    </p>
+    <h1>3.Maintain a Healthy Diet</h1>
+    <p>
+      Regular plasma donations can guide you toward healthier eating habits. At a donor center, donors are always encouraged to eat nutritious foods - filled with iron, protein, and vitamin C - and drink enough water to make their donations go smoothly. When the body is adequately hydrated, veins become more dilated, which allows for better blood flow during the appointment. It also helps your body replenish lost fluids faster, which is crucial, given that plasma is mostly water.
+    </p>
+    <h1>4.Reduce Cholesterol Levels</h1>
+    <p>
+      Donating plasma doesn't only make you more aware of your diet. It may also have a positive impact on your physical health. One health benefit of regular plasma donation is the potential reduction of bad cholesterol levels and the increase of good cholesterol, especially in women. A study has shown that if you have high total cholesterol levels, the collection process may be able to help regulate cholesterol in general.
+High cholesterol can increase your risk of heart disease and heart attacks. As your plasma is collected and your body creates new plasma, you could be minimizing your own health risks while providing life-saving medicine to those who need it.
+    </p>
+    <h1>5. Lower Blood Pressure</h1>
+    <p>In addition to reducing cholesterol levels, becoming a regular plasma donor may have some residual effects on vital signs like blood pressure. A 2015 study indicates that blood pressure may decrease following plasma donation in individuals with high baseline blood pressure levels.</p>
+    
+    
+  </div>
+  <div class="container">
+    <img src="{{url_for('static',filename='/images/a.jpeg')}}" alt="">
+    <h1>Strat donating and start saving life's</h1>
+  </div>
+</div>
+<script>
+    setTimeout(() => {
+    const box = document.getElementById('error');
+    box.style.display = 'none';
+  }, 10000);
+</script>
+{% endblock %}

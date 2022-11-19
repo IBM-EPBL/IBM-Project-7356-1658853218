@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: project
+
+  template:
+    metadata:
+      labels:
+        app: project
+
+
+    spec:
+      containers:
+        - name: project-container
+          image: jp.icr.io/jonah/project
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
